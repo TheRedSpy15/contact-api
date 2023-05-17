@@ -63,9 +63,7 @@ The script is now running inside a Docker container and accessible at *http://lo
 To send contact information via a POST request, use the following endpoint:
 - *URL*: http://localhost:5000/
 - *Method*: POST
-- *Headers*:
-    - Content-Type: application/json
-- *Body*:
+- *Form data*:
     - name: (string) The name of the contact.
     - email: (string) The email address of the contact.
     - subject: (string) The subject of the message.
@@ -73,7 +71,7 @@ To send contact information via a POST request, use the following endpoint:
 
 Example curl command:
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"name":"John Doe","email":"john@example.com","subject":"Hello","message":"This is a test message."}' http://localhost:5000/
+curl -X POST -F "name=John Doe" -F "email=john@example.com" -F "subject=Hello" -F "message=This is a test message." http://localhost:5000/
 ```
 
 ## Health Check
